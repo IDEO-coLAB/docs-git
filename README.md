@@ -10,6 +10,8 @@ These are the CoLab's documents for handling version control, branch strategies.
 - [Contribute](#contribute)
 - [License](#license)
 
+------------------------------
+
 ## <a name="git"></a>Version Control: Git
 
 We currently use `Git` for version control in the CoLab.
@@ -21,6 +23,8 @@ If you're unfamiliar with `Git`, it is an *extremely useful* tool, and one that 
 #### Learning
 - [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from Github)
 - [Official 'get started' docs](https://git-scm.com/documentation)
+
+------------------------------
 
 ## <a name="github"></a>Source Hosting: GitHub
 
@@ -38,11 +42,18 @@ All CoLab documentation repos are prefixed with `docs-*`. You can pull up all Co
 
 All CoLab forkable base repos are prefixed with `forkable-*`. You can pull up all CoLab forkable base repos by simply searching for `forkable-` using the CoLab the organization's search bar.
 
-- **`forkable-<language>-*`**: The `forkable-` namespace is succeeded by another namespace for the base repo's primary language. For example, the CoLab's React forkable repo is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-<language>-*` convention. Now you can find all forkable base repos in in your language of choice!
+#### `forkable-[language]-*`
+
+The `forkable-` namespace is succeeded by another namespace to be used for repo's primary language (e.g.: `forkable-js-*`, `forkable-py-*`, etc...). 
+
+For a living example, the CoLab's React template repo is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-[language]-*` convention. Now you can find all forkable base repos in in your language of choice!
+
+------------------------------
 
 ## <a name="gitflow"></a>Git Strategy: Git Flow
 
-### Any optional sections
+We use the [Git Flow] strategy for handling branches and releases
+
 
 
 
@@ -57,11 +68,13 @@ All CoLab forkable base repos are prefixed with `forkable-*`. You can pull up al
 
 
 
-
+------------------------------
 
 ## Contribute
 
 PRs accepted!
+
+------------------------------
 
 ## License
 
