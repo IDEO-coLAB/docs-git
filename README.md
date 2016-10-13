@@ -3,19 +3,50 @@ These are the CoLab's documents for handling version control, branch strategies.
 
 ## Table of Contents
 
-- [Git](#git)
-- [Git Flow](#gitflow)
+- [Version Control: Git](#git)
+- [Source Hosting: GitHub](#github)
+- [Git Strategy: Git Flow](#gitflow)
 - [Commands](#commands)
 - [Contribute](#contribute)
 - [License](#license)
 
-## Git
+## <a name="git"></a>Version Control: Git
+
+We currently use `Git` for version control in the CoLab.
+
+### External Resources
+
+If you're unfamiliar with `Git`, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
+
+**Learning**
+- [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from Github)
+- [Official 'get started' docs](https://git-scm.com/documentation)
+
+## <a name="github"></a>Source Hosting: GitHub
+
+We host all of our repos under the [CoLab organization](https://github.com/IDEO-coLAB) on [GitHub](https://github.com/).
+
+### Finding Relevant Code
+
+We use (relatively) strict naming conventions to create namespaces for CoLab's core repos. Simply search using any relevant namespace to filter out unnecessary repos. See the examples below.
+
+**`docs-*`**
+
+All CoLab documentation repos are prefixed with `docs-*`. You can pull up all CoLab docs by simply searching for `docs-` using the CoLab organization's search bar.
+
+**`forkable-*`** 
+
+All CoLab forkable base repos are prefixed with `forkable-<language_prefix>-*`. You can pull up all CoLab forkable base repos by simply searching for `forkable-` using the CoLab the organization's search bar.
+
+- `forkable-<language_prefix>-*`: The `forkable` namespace is followed by a namespace for the base repo's primary language. For example, our React forkable base is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-<language_prefix>-*` convention.
+
+## <a name="gitflow"></a>Git Strategy: Git Flow
 
 ### Any optional sections
 
-## <a name="gitflow"></a>Git Flow
 
-### Any optional sections
+
+
 
 ## Commands
 
@@ -23,6 +54,9 @@ These are the CoLab's documents for handling version control, branch strategies.
 ```
 
 ### Any optional sections
+
+
+
 
 
 ## Contribute
