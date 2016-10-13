@@ -18,7 +18,7 @@ We currently use `Git` for version control in the CoLab.
 
 If you're unfamiliar with `Git`, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
 
-**Learning**
+#### Learning
 - [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from Github)
 - [Official 'get started' docs](https://git-scm.com/documentation)
 
@@ -30,15 +30,15 @@ We host all of our repos under the [CoLab organization](https://github.com/IDEO-
 
 We use (relatively) strict naming conventions to create namespaces for CoLab's core repos. Simply search using any relevant namespace to filter out unnecessary repos. See the examples below.
 
-**`docs-*`**
+#### `docs-*`
 
 All CoLab documentation repos are prefixed with `docs-*`. You can pull up all CoLab docs by simply searching for `docs-` using the CoLab organization's search bar.
 
-**`forkable-*`** 
+#### `forkable-*`
 
-All CoLab forkable base repos are prefixed with `forkable-<language_prefix>-*`. You can pull up all CoLab forkable base repos by simply searching for `forkable-` using the CoLab the organization's search bar.
+All CoLab forkable base repos are prefixed with `forkable-*`. You can pull up all CoLab forkable base repos by simply searching for `forkable-` using the CoLab the organization's search bar.
 
-- `forkable-<language_prefix>-*`: The `forkable` namespace is followed by a namespace for the base repo's primary language. For example, our React forkable base is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-<language_prefix>-*` convention.
+- **`forkable-<language>-*`**: The `forkable-` namespace is succeeded by another namespace for the base repo's primary language. For example, the CoLab's React forkable repo is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-<language>-*` convention. Now you can find all forkable base repos in in your language of choice!
 
 ## <a name="gitflow"></a>Git Strategy: Git Flow
 
