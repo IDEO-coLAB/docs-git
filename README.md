@@ -6,73 +6,125 @@ These are the CoLab's documents for handling version control, branch strategies.
 - [Version Control: Git](#git)
 - [Source Hosting: GitHub](#github)
 - [Git Strategy: Git Flow](#gitflow)
-- [Commands](#commands)
-- [Contribute](#contribute)
 - [License](#license)
 
 ------------------------------
 
 ## <a name="git"></a>Version Control: Git
 
-We currently use `Git` for version control in the CoLab.
+We currently use Git for version control in the CoLab.
 
 ### External Resources
 
-If you're unfamiliar with `Git`, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
+If you're unfamiliar with Git, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
 
-#### Learning
-- [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from Github)
-- [Official 'get started' docs](https://git-scm.com/documentation)
+#### General Learning
+- [Overall explanation](https://betterexplained.com/articles/aha-moments-when-learning-git/)
+- [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from GitHub)
+- [Git's official 'get started' docs](https://git-scm.com/documentation) (surprisingly good!)
+
+#### Helpful Specifics
+- [Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
+- [Remote Branches](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches) 
 
 ------------------------------
 
 ## <a name="github"></a>Source Hosting: GitHub
 
-We host all of our repos under the [CoLab organization](https://github.com/IDEO-coLAB) on [GitHub](https://github.com/).
-
-### Finding Relevant Code
-
-We use (relatively) strict naming conventions to create namespaces for CoLab's core repos. Simply search using any relevant namespace to filter out unnecessary repos. See the examples below.
-
-#### `docs-*`
-
-All CoLab documentation repos are prefixed with `docs-*`. You can pull up all CoLab docs by simply searching for `docs-` using the CoLab organization's search bar.
-
-#### `forkable-*`
-
-All CoLab forkable base repos are prefixed with `forkable-*`. You can pull up all CoLab forkable base repos by simply searching for `forkable-` using the CoLab the organization's search bar.
-
-#### `forkable-[language]-*`
-
-The `forkable-` namespace is succeeded by another namespace to be used for repo's primary language (e.g.: `forkable-js-*`, `forkable-py-*`, etc...). 
-
-For a living example, the CoLab's React template repo is primarily a javascript project. As such, it is named `forkable-js-react-static`, following the `forkable-[language]-*` convention. Now you can find all forkable base repos in in your language of choice!
+We host all CoLab repos under the [CoLab organization](https://github.com/IDEO-coLAB) on [GitHub](https://github.com/).
 
 ------------------------------
 
 ## <a name="gitflow"></a>Git Strategy: Git Flow
 
-We use the [Git Flow] strategy for handling branches and releases
+We use our own version of the [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) strategy for handling branches and releases. We follow this strictly to avoid odd bugs and unknown state in our production code.
 
+### The Branch Strategy
 
+The Git Flow development model is greatly inspired by existing models. The CoLab origin's central repo holds two main branches with an infinite lifetime: `origin/master` and `origin/develop`.
 
+#### Master Branch: `master`
 
+We consider `master` to be the main branch where the source code of `HEAD` **always reflects a production-ready state**. 
 
+Changes to `master` should always come through a pull request.
 
-## Commands
+#### Develop Branch: `develop`
 
+We consider `develop` to be the main branch where the source code of `HEAD` always reflects a state with the latest delivered development changes for the next release. Some would call this the “integration branch”. This is the branch from which all `feature` and `hotfix` branches are forked, and into which all `feature` and `hotfix` branches are merged.
+
+Changes to `develop` should always come through a pull request.
+
+- Naming convention: `develop`
+- Branches from: `master`
+- Must merge back into: `master`
+
+#### Feature Branches: `feature/[some_feature_name]`
+
+Feature branches are used to develop new features for some upcoming release. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment). Basically, all feature branches are eventually pruned.
+
+Feature branches typically exist in developer repos only, and if they exist in `origin`, they should be merged into `develop` via pull request quickly.
+
+- Naming convention: `feature/*`
+- Branches from: `develop`
+- Must merge back into: `develop`
+
+##### Creating a New Feature Branch: 
+
+Here's an example of creating a new `feature` branch called `my_new_feature` that tracks the branch `origin/develop`:
+
+```sh
+> git checkout -b feature/my_new_feature origin/develop
+Switched to a new branch "feature/my_new_feature"
 ```
+
+##### Merging a Feature Branch into Develop: 
+
+Push your feature branch (`feature/my_new_feature`) up to Github.
+
+```sh
+> git push origin feature/my_new_feature
 ```
 
-### Any optional sections
+Then open a pull request on GitHub, attempting to merge your `feature` branch into `develop`. **Note: Feature branches always merge into `develop`.**
 
+Once successfully merged into `develop`, you can safely delete the feature branch on GitHub as well as from your local branches.
 
+```sh
+> git branch -D feature/my_new_feature
+Deleted branch feature/my_new_feature (was 05e9557).
+```
 
-------------------------------
+#### Hotfix Branches: `hotfix/[some_hotfix]`
 
-## Contribute
+Hotfix branches arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a `hotfix` branch may be branched from the current `master`.
 
-PRs accepted!
+- Naming convention: `hotfix/*`
+- Branches from: `master`
+- Must merge back into: first `master`, then `develop` immediately after (to ensure consistency)
+
+##### Creating a New Hotfix Branch: 
+
+Here's an example of creating a new `hotfix` branch called `button_bug` that tracks the branch `origin/master`:
+
+```sh
+> git checkout -b hotfix/button_bug origin/master
+Switched to a new branch "hotfix/button_bug"
+```
+
+##### Merging a Hotfix Branch into Master then Develop: 
+
+Push your feature branch (`hotfix/button_bug`) up to Github.
+
+```sh
+> git push origin hotfix/button_bug
+```
+
+Then open a pull request on GitHub, attempting to merge your hotfix branch (`hotfix/button_bug`) into `master`.
+
+Once your pull request is accepted into `master`, immediately open up a new pull request to merge it into `develop` to keep things in sync.
+
+Once successfully merged into **both `master` and `develop`**, you can safely delete your `hotfix` branch on GitHub as well as from your local branches.
 
 ------------------------------
 
