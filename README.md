@@ -4,7 +4,7 @@ These are the CoLab's documents for handling version control, branch strategies.
 ## Table of Contents
 
 - [Git](#git)
-- [Git Flow](#git flow)
+- [Git Flow](#gitflow)
 - [Commands](#commands)
 - [Contribute](#contribute)
 - [License](#license)
@@ -13,7 +13,7 @@ These are the CoLab's documents for handling version control, branch strategies.
 
 ### Any optional sections
 
-## Git Flow
+## <a name="gitflow"></a>Git Flow
 
 ### Any optional sections
 
