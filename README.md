@@ -59,31 +59,31 @@ Changes to `develop` should always come through a pull request.
 - Branches from: `master`
 - Must merge back into: `master`
 
-#### Feature Branches: `feature/[some_feature_name]`
+#### Feature Branches: `feature-[some_feature_name]`
 
 Feature branches are used to develop new features for some upcoming release. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment). Basically, all feature branches are eventually pruned.
 
-Feature branches typically exist in developer repos only, and if they exist in `origin`, they should be merged into `develop` via pull request quickly.
+Feature branches should not exist in `origin` for very long. They should be merged into `develop`, via pull request, as quickly as possible and then cleaned up.
 
-- Naming convention: `feature/*`
+- Naming convention: `feature-*`
 - Branches from: `develop`
 - Must merge back into: `develop`
 
 ##### Creating a New Feature Branch: 
 
-Here's an example of creating a new `feature` branch called `my_new_feature` that tracks the branch `origin/develop`:
+Here's an example of creating a new `feature-headerbar` branch that tracks the branch `origin/develop`:
 
 ```sh
-> git checkout -b feature/my_new_feature origin/develop
-Switched to a new branch "feature/my_new_feature"
+> git checkout -b feature-headerbar origin/develop
+Switched to a new branch "feature-headerbar"
 ```
 
 ##### Merging a Feature Branch into Develop: 
 
-Push your feature branch (`feature/my_new_feature`) up to Github.
+Push your feature branch (`feature-headerbar`) up to Github.
 
 ```sh
-> git push origin feature/my_new_feature
+> git push origin feature-headerbar
 ```
 
 Then open a pull request on GitHub, attempting to merge your `feature` branch into `develop`. **Note: Feature branches always merge into `develop`.**
@@ -91,40 +91,40 @@ Then open a pull request on GitHub, attempting to merge your `feature` branch in
 Once successfully merged into `develop`, you can safely delete the feature branch on GitHub as well as from your local branches.
 
 ```sh
-> git branch -D feature/my_new_feature
-Deleted branch feature/my_new_feature (was 05e9557).
+> git branch -D feature-headerbar
+Deleted branch feature-headerbar (was 05e9557).
 ```
 
-#### Hotfix Branches: `hotfix/[some_hotfix]`
+#### Hotfix Branches: `hotfix-[some_hotfix_name]`
 
-Hotfix branches arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a `hotfix` branch may be branched from the current `master`.
+Hotfix branches arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a `hotfix` branch must be branched from the current `master`.
 
-- Naming convention: `hotfix/*`
+- Naming convention: `hotfix-*`
 - Branches from: `master`
 - Must merge back into: first `master`, then `develop` immediately after (to ensure consistency)
 
 ##### Creating a New Hotfix Branch: 
 
-Here's an example of creating a new `hotfix` branch called `button_bug` that tracks the branch `origin/master`:
+Here's an example of creating a new `hotfix-button_bug` branch that tracks the branch `origin/master`:
 
 ```sh
-> git checkout -b hotfix/button_bug origin/master
-Switched to a new branch "hotfix/button_bug"
+> git checkout -b hotfix-button_bug origin/master
+Switched to a new branch "hotfix-button_bug"
 ```
 
 ##### Merging a Hotfix Branch into Master then Develop: 
 
-Push your feature branch (`hotfix/button_bug`) up to Github.
+Push your feature branch (`hotfix-button_bug`) up to Github.
 
 ```sh
-> git push origin hotfix/button_bug
+> git push origin hotfix-button_bug
 ```
 
-Then open a pull request on GitHub, attempting to merge your hotfix branch (`hotfix/button_bug`) into `master`.
+Then open a pull request on GitHub, attempting to merge your hotfix branch (`hotfix-button_bug`) into `master`.
 
 Once your pull request is accepted into `master`, immediately open up a new pull request to merge it into `develop` to keep things in sync.
 
-Once successfully merged into **both `master` and `develop`**, you can safely delete your `hotfix` branch on GitHub as well as from your local branches.
+Once successfully merged into **both `master` and `develop`**, you can safely delete your `hotfix-button_bug` branch on GitHub as well as from your local branches.
 
 ------------------------------
 
