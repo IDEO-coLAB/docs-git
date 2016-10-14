@@ -2,6 +2,8 @@
 These are the CoLab's documents for handling version control, branch strategies. It also includes a few other helpful commands.
 
 ------------------------------
+<br/>
+
 
 ## Table of Contents
 
