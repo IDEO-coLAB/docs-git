@@ -59,7 +59,7 @@ Changes to `develop` should always come through a pull request.
 - Branches from: `master`
 - Must merge back into: `master`
 
-#### Feature Branches: `feature-[some_feature_name]`
+#### Feature Branches: `feature-*`
 
 Feature branches are used to develop new features for some upcoming release. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment). Basically, all feature branches are eventually pruned.
 
@@ -69,7 +69,7 @@ Feature branches should not exist in `origin` for very long. They should be merg
 - Branches from: `develop`
 - Must merge back into: `develop`
 
-##### Creating a New Feature Branch: 
+##### Creation: 
 
 Here's an example of creating a new `feature-headerbar` branch that tracks the branch `origin/develop`:
 
@@ -78,7 +78,7 @@ Here's an example of creating a new `feature-headerbar` branch that tracks the b
 Switched to a new branch "feature-headerbar"
 ```
 
-##### Merging a Feature Branch into Develop: 
+##### Merging: 
 
 Push your feature branch (`feature-headerbar`) up to Github.
 
@@ -95,7 +95,7 @@ Once successfully merged into `develop`, you can safely delete the feature branc
 Deleted branch feature-headerbar (was 05e9557).
 ```
 
-#### Hotfix Branches: `hotfix-[some_hotfix_name]`
+#### Hotfix Branches: `hotfix-*`
 
 Hotfix branches arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a `hotfix` branch must be branched from the current `master`.
 
@@ -103,7 +103,7 @@ Hotfix branches arise from the necessity to act immediately upon an undesired st
 - Branches from: `master`
 - Must merge back into: first `master`, then `develop` immediately after (to ensure consistency)
 
-##### Creating a New Hotfix Branch: 
+##### Creation:
 
 Here's an example of creating a new `hotfix-button_bug` branch that tracks the branch `origin/master`:
 
@@ -112,7 +112,7 @@ Here's an example of creating a new `hotfix-button_bug` branch that tracks the b
 Switched to a new branch "hotfix-button_bug"
 ```
 
-##### Merging a Hotfix Branch into Master then Develop: 
+##### Merging:
 
 Push your feature branch (`hotfix-button_bug`) up to Github.
 
