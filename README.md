@@ -1,14 +1,17 @@
 # `docs-git`
 These are the CoLab's documents for handling version control, branch strategies. It also includes a few other helpful commands.
 
+------------------------------
+
 ## Table of Contents
 
 - [Version Control: Git](#git)
 - [Source Hosting: GitHub](#github)
 - [Git Strategy: Git Flow](#gitflow)
-- [License](#license)
 
 ------------------------------
+<br/>
+
 
 ## <a name="git"></a>Version Control: Git
 
@@ -19,7 +22,7 @@ We currently use Git for version control in the CoLab.
 If you're unfamiliar with Git, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
 
 #### General Learning
-- [Overall explanation](https://betterexplained.com/articles/aha-moments-when-learning-git/)
+- [Great overall explanation](https://betterexplained.com/articles/aha-moments-when-learning-git/)
 - [In-browser interactive tutorial](https://try.github.io/levels/1/challenges/1) (from GitHub)
 - [Git's official 'get started' docs](https://git-scm.com/documentation) (surprisingly good!)
 
@@ -28,12 +31,16 @@ If you're unfamiliar with Git, it is an *extremely useful* tool, and one that we
 - [Remote Branches](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches) 
 
 ------------------------------
+<br/>
+
 
 ## <a name="github"></a>Source Hosting: GitHub
 
 We host all CoLab repos under the [CoLab organization](https://github.com/IDEO-coLAB) on [GitHub](https://github.com/).
 
 ------------------------------
+<br/>
+
 
 ## <a name="gitflow"></a>Git Strategy: Git Flow
 
@@ -43,11 +50,15 @@ We use our own version of the [Git Flow](http://nvie.com/posts/a-successful-git-
 
 The Git Flow development model is greatly inspired by existing models. The CoLab origin's central repo holds two main branches with an infinite lifetime: `origin/master` and `origin/develop`.
 
+<br/>
+
 #### Master Branch: `master`
 
 We consider `master` to be the main branch where the source code of `HEAD` **always reflects a production-ready state**. 
 
 Changes to `master` should always come through a pull request.
+
+<br/>
 
 #### Develop Branch: `develop`
 
@@ -58,6 +69,8 @@ Changes to `develop` should always come through a pull request.
 - Naming convention: `develop`
 - Branches from: `master`
 - Must merge back into: `master`
+
+<br/>
 
 #### Feature Branches: `feature-*`
 
@@ -95,6 +108,8 @@ Once successfully merged into `develop`, you can safely delete the feature branc
 Deleted branch feature-headerbar (was 05e9557).
 ```
 
+<br/>
+
 #### Hotfix Branches: `hotfix-*`
 
 Hotfix branches arise from the necessity to act immediately upon an undesired state of a live production version. When a critical bug in a production version must be resolved immediately, a `hotfix` branch must be branched from the current `master`.
@@ -125,9 +140,3 @@ Then open a pull request on GitHub, attempting to merge your hotfix branch (`hot
 Once your pull request is accepted into `master`, immediately open up a new pull request to merge it into `develop` to keep things in sync.
 
 Once successfully merged into **both `master` and `develop`**, you can safely delete your `hotfix-button_bug` branch on GitHub as well as from your local branches.
-
-------------------------------
-
-## License
-
-MIT © IDEO CoLab
