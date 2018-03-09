@@ -20,7 +20,7 @@ We currently use Git for version control in the CoLab.
 
 ### Resources
 
-If you're unfamiliar with Git, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarie yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
+If you're unfamiliar with Git, it is an *extremely useful* tool, and one that we use daily. You'll need to familiarize yourself with the basics in order to work with, and contribute to, CoLab engineering projects.
 
 - Overall Introductions:
   * [Great overall explanation](https://betterexplained.com/articles/aha-moments-when-learning-git/)
